@@ -3,11 +3,6 @@ from utils import get_input_num
 # Stage 1
 a, b = 7, 6
 print(f'a = {a}', 'and', f'b = {b}')
-# print(f'{a} + {b} = {a + b}')
-# print(f'{a} - {b} = {a - b}')
-# print(f'{a} * {b} = {a * b}')
-# print(f'{a} / {b} = {a / b}')
-# print(f'{a} ** {b} = {a ** b}')
 for op in ['+', '-', '*', '/', '**']:
     print(f"{a} {op} {b} = {eval(f'{a} {op} {b}')}")
 
@@ -44,6 +39,33 @@ input_num: int = get_input_num('число')
 print(max_int(input_num))
 
 # Stage 5
+a = get_input_num('выручку фирмы (число)')
+b = get_input_num('издержки фирмы (число)')
 
+if a > b:
+    c = a - b
+    print(f'Фирма отработала с прибылью {c}')
+    print(f'Рентабельность выручки {round(c / a * 100, 2)}')
+    person = get_input_num('количество сотрудников')
+    print(f'Прибыль на одного сотрудника {round(c / person, 2)}')
+else:
+    print(f'Фирма отработала в убыток')
 
 # Stage 6
+a = get_input_num('результат первого дня в километрах')
+b = get_input_num('максимальное число в километрах')
+c = 10
+day = 1
+results: dict = {}
+count_current: float = a
+
+print('Результат:')
+while True:
+    if not day == 1:
+        count_current = round(count_current + (count_current / 100 * c), 2)
+    results[day] = count_current
+    print(f'{day}-й день: {count_current}')
+    if count_current >= b:
+        print(f'\nОтвет: на {day}-й день спортсмен достиг результата — не менее {b} км.')
+        break
+    day += 1
