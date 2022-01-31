@@ -1,5 +1,5 @@
-def int_func(value: str) -> str:
+def upper_func(value: str) -> str:
     return value.upper()
 
 
-print(int_func('hello'))
+print(upper_func('hello'))

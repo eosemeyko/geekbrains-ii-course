@@ -1,5 +1,8 @@
-def int_func(value: str) -> str:
-    return ' '.join(word[0].upper() + word[1:] for word in value.split())
+from task6 import upper_func
 
 
-print(int_func('hello world'))
+def my_func(value: str) -> str:
+    return ' '.join(upper_func(word[0]) + word[1:] for word in value.split())
+
+
+print(my_func('hello world'))
