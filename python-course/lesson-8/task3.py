@@ -10,9 +10,14 @@ class NotIntegerError(Exception):
     pass
 
 
+num_list = list()
+
 while True:
     try:
-        user_input = input('Введите числа по порядку: ')
+        user_input = input('Введите числа по порядку (или stop для остановки): ')
+        if user_input == 'stop':
+            break
+
         value_lst = user_input.split()
 
         # Проверка на числовые значения
@@ -20,9 +25,10 @@ while True:
             raise NotIntegerError(f'Вы ввели не числа')
 
         # Сохранение значений в список с конвертацией в числа
-        print(list(map(int, value_lst)))
+        num_list += list(map(int, value_lst))
+        print(num_list)
 
     except NotIntegerError as err:
         print(err)
-    else:
-        break
+
+print(num_list)

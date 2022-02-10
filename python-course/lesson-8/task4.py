@@ -14,7 +14,7 @@ class OfficeEquipment(Warehouse):
     def __init__(self):
         super().__init__()
         print(f'Оргтехника брендов {", ".join(self.__brands)}')
-        print(f'{self.__class__.__name__} на складе: {self._boxes} шт.')
+        print(f'{self.__class__.__name__} на складе: {self._boxes} ед.')
         print(f'Размеры коробок: {self._box_width}x{self._box_height}')
 
     @property
